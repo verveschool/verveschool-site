@@ -98,9 +98,15 @@ footer{padding-top:28px;padding-bottom:36px;background:transparent}
 .mobile-sticky{display:none;position:fixed;left:0;right:0;bottom:14px;z-index:999;justify-content:center;padding:0 20px;pointer-events:none}
 .mobile-sticky .button.primary{width:100%;pointer-events:auto;height:52px;display:flex;align-items:center;justify-content:center}
 
-/* alternating section backgrounds */
-main section:nth-of-type(odd){ background:#ffffff }
-main section:nth-of-type(even){ background:#fbfbfd }
+/* alternating backgrounds for content sections only */
+main > section:nth-of-type(odd) {
+  background:#ffffff;
+}
+
+main > section:nth-of-type(even) {
+  background:#ffffee;
+}
+
 
 /* hero media styling */
 .hero-illustration, .hero-video, .yt-embed{ border-radius:10px; box-shadow:0 10px 30px rgba(0,0,0,0.06); max-width:420px; width:100%; height:auto; display:block; }
@@ -136,6 +142,50 @@ main section:nth-of-type(even){ background:#fbfbfd }
   border-radius:10px;
 }
 
+/* orange text utility */
+.text-orange { 
+  color: #ff631f; 
+}
+
+
+/* accessibility focus */
+a:focus, button:focus, input:focus{outline:3px solid rgba(255,99,31,0.15); outline-offset:2px}
+
+/* small polish */
+h1, h2, h3 { word-break:normal; }
+.lead, p { max-width:760px; }
+
+/* ensure header sits above modal */
+.site-header{position:sticky; top:0; z-index:90}
+
+/* tighten sections to YC width */
+main section > .container,
+.backed-hero .container,
+.apply-section .container {
+  max-width: 620px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+}
+
+section p, section ul, section .stories {
+  max-width: 620px;
+}
+
+
+/* keep lists and long paragraphs from stretching */
+section p, section ul, section .stories {
+  max-width: 620px;
+}
+
+/* make cards wrap more nicely on wide screens */
+.card-row { max-width: 900px; margin-left: auto; margin-right: auto; }
+.card { flex: 1 1 260px; }
+
+/* increase vertical space so sections breathe */
+main section { padding-top: 56px; padding-bottom: 56px; }
+
 /* small screens */
 @media(max-width:900px){
   .inner{padding:0 18px}
@@ -150,37 +200,4 @@ main section:nth-of-type(even){ background:#fbfbfd }
   .mobile-sticky{display:flex}
   .card{flex:1 1 100%;min-width:0}
 }
-
-/* accessibility focus */
-a:focus, button:focus, input:focus{outline:3px solid rgba(255,99,31,0.15); outline-offset:2px}
-
-/* small polish */
-h1, h2, h3 { word-break:normal; }
-.lead, p { max-width:760px; }
-
-/* ensure header sits above modal */
-.site-header{position:sticky; top:0; z-index:90}
-
-/* tighten sections for better reading */
-main section > .container,
-.backed-hero .container,
-.apply-section .container {
-  max-width: 680px !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  padding-left: 20px !important;
-  padding-right: 20px !important;
-}
-
-/* keep lists and long paragraphs from stretching */
-section p, section ul, section .stories {
-  max-width: 620px;
-}
-
-/* make cards wrap more nicely on wide screens */
-.card-row { max-width: 900px; margin-left: auto; margin-right: auto; }
-.card { flex: 1 1 260px; }
-
-/* increase vertical space so sections breathe */
-main section { padding-top: 56px; padding-bottom: 56px; }
 
