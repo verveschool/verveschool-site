@@ -2,7 +2,7 @@
   --max-width:760px;
   --site-max:1100px;
   --bg1:#ffffff;
-  --bg2:#f9f9f7;
+  --bg2:#fbfbfd;
   --orange:#ff631f;
   --text:#0f1720;
   --muted:#6f6f6f;
@@ -27,7 +27,7 @@ body{
   line-height:1.6;
   font-size:17px;
 }
-a{color:inherit}
+a{color:inherit; text-decoration:none}
 
 /* containers */
 .inner{max-width:var(--site-max);margin:0 auto;padding:0 28px}
@@ -38,10 +38,10 @@ a{color:inherit}
 .header-row{height:68px;display:flex;align-items:center;justify-content:space-between;gap:12px}
 .brand{display:flex;align-items:center;gap:12px}
 .logo-img{height:36px;width:auto;display:block}
-.brand-name{font-weight:700}
+.brand-name{font-weight:700;font-size:15px}
 
 .nav{display:flex;gap:18px;align-items:center}
-.nav a{font-size:15px;color:var(--muted);text-decoration:none;font-weight:600;padding:8px}
+.nav a{font-size:15px;color:var(--muted);padding:8px;font-weight:600}
 .nav a:hover{color:var(--orange)}
 
 /* hero */
@@ -73,6 +73,12 @@ h2,h3{font-size:24px;margin:0 0 12px 0}
 p{margin:0 0 18px 0;max-width:760px}
 ul{margin:0 0 18px 24px}
 
+/* card and story list */
+.card-row{display:flex;gap:18px;margin-top:24px;flex-wrap:wrap}
+.card{flex:1 1 280px;background:#fff;padding:18px;border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,0.04)}
+.stories{list-style:none;padding:0;margin:0}
+.stories li{margin-bottom:10px}
+
 /* apply section contact line */
 .apply-section .contact-line{margin-top:18px;color:var(--muted);font-size:13px}
 
@@ -80,10 +86,6 @@ ul{margin:0 0 18px 24px}
 footer{padding-top:28px;padding-bottom:36px;background:transparent}
 .footer-row{display:flex;justify-content:space-between;align-items:center}
 .muted{color:var(--muted)}
-
-/* alternating section backgrounds */
-main section:nth-of-type(odd){ background:#ffffff }
-main section:nth-of-type(even){ background:#fbfbfd }
 
 /* modal */
 .modal-backdrop{position:fixed;inset:0;background:rgba(10,11,13,0.5);display:none;align-items:center;justify-content:center;z-index:1000;padding:20px}
@@ -96,11 +98,49 @@ main section:nth-of-type(even){ background:#fbfbfd }
 .mobile-sticky{display:none;position:fixed;left:0;right:0;bottom:14px;z-index:999;justify-content:center;padding:0 20px;pointer-events:none}
 .mobile-sticky .button.primary{width:100%;pointer-events:auto;height:52px;display:flex;align-items:center;justify-content:center}
 
+/* alternating section backgrounds */
+main section:nth-of-type(odd){ background:#ffffff }
+main section:nth-of-type(even){ background:#fbfbfd }
+
+/* hero media styling */
+.hero-illustration, .hero-video, .yt-embed{ border-radius:10px; box-shadow:0 10px 30px rgba(0,0,0,0.06); max-width:420px; width:100%; height:auto; display:block; }
+
+/* emergency hero layout fix */
+.hero{
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  justify-content:space-between;
+  gap:40px;
+  padding-top:80px;
+  padding-bottom:80px;
+  text-align:left;
+}
+
+.hero-left{
+  flex:1;
+  max-width:520px;
+}
+
+.hero-right{
+  flex:1;
+  display:flex;
+  justify-content:flex-end;
+}
+
+.hero-illustration{
+  max-width:420px;
+  width:100%;
+  height:auto;
+  display:block;
+  border-radius:10px;
+}
+
 /* small screens */
 @media(max-width:900px){
   .inner{padding:0 18px}
-  .hero{flex-direction:column;text-align:left;padding:28px 0}
-  .hero-right{text-align:left}
+  .hero{flex-direction:column;text-align:left;padding:28px 0;gap:24px}
+  .hero-right{text-align:left;justify-content:flex-start;width:100%}
   h1{font-size:28px}
   .logo-img{height:32px}
   .header-row{height:64px}
@@ -108,41 +148,15 @@ main section:nth-of-type(even){ background:#fbfbfd }
   .modal{padding:16px}
   .hero-illustration{max-width:100%;height:auto}
   .mobile-sticky{display:flex}
-}
-/* emergency ui fix - paste at end of styles.css */
-@media (min-width:901px){
-  /* make hero centered and readable on desktop */
-  .hero{
-    display:flex !important;
-    flex-direction:row !important;
-    align-items:center !important;
-    justify-content:space-between !important;
-    padding:56px 0 !important;
-    gap:28px !important;
-    text-align:left !important;
-  }
-  .hero-left{flex:0 0 52% !important; max-width:640px;}
-  .hero-right{flex:0 0 42% !important; text-align:right;}
-  .hero-left h1{font-size:44px; line-height:1.02; margin:0 0 12px;}
-  .hero-left .lead{margin-top:8px;}
-  .hero-illustration{max-width:420px; width:100%; height:auto; display:block;}
+  .card{flex:1 1 100%;min-width:0}
 }
 
-/* mobile keep stacked */
-@media (max-width:900px){
-  .hero{flex-direction:column; text-align:left; padding:28px 0;}
-  .hero-right{width:100%; margin-top:14px;}
-}
+/* accessibility focus */
+a:focus, button:focus, input:focus{outline:3px solid rgba(255,99,31,0.15); outline-offset:2px}
 
-/* stop tall narrow cards / columns from stacking weirdly */
-.container { max-width:1100px !important; }
-section, .card, .stories, .logos-row { max-width:1100px; }
-.card-row{display:flex; gap:18px; flex-wrap:wrap; align-items:stretch;}
-.card{flex:1 1 300px; min-width:220px; box-shadow:0 6px 18px rgba(0,0,0,0.04);}
-
-/* small visual reset */
+/* small polish */
 h1, h2, h3 { word-break:normal; }
 .lead, p { max-width:760px; }
 
-/* ensure sticky header not overlapping */
-.site-header{position:sticky; top:0; z-index:90;}
+/* ensure header sits above modal */
+.site-header{position:sticky; top:0; z-index:90}
