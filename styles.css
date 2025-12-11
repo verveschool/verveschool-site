@@ -2,7 +2,7 @@
   --max-width:760px;
   --site-max:1100px;
   --bg1:#ffffff;
-  --bg2:#fbfbfd;
+  --bg2:#ffffee;
   --orange:#ff631f;
   --text:#0f1720;
   --muted:#6f6f6f;
@@ -34,11 +34,11 @@ a{color:inherit; text-decoration:none}
 .container{max-width:var(--max-width);margin:0 auto;padding:0 24px}
 
 /* header */
-.site-header{background:var(--bg1);position:sticky;top:0;z-index:60;border-bottom:1px solid var(--border)}
+.site-header{background:var(--bg2);position:sticky;top:0;z-index:60;border-bottom:1px solid var(--border)}
 .header-row{height:68px;display:flex;align-items:center;justify-content:space-between;gap:12px}
 .brand{display:flex;align-items:center;gap:12px}
 .logo-img{height:36px;width:auto;display:block}
-.brand-name{font-weight:700;font-size:15px}
+.brand-name{font-weight:600;font-size:15px}
 
 .nav{display:flex;gap:18px;align-items:center}
 .nav a{font-size:15px;color:var(--muted);padding:8px;font-weight:600}
@@ -160,3 +160,27 @@ h1, h2, h3 { word-break:normal; }
 
 /* ensure header sits above modal */
 .site-header{position:sticky; top:0; z-index:90}
+
+/* tighten sections for better reading */
+main section > .container,
+.backed-hero .container,
+.apply-section .container {
+  max-width: 680px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+}
+
+/* keep lists and long paragraphs from stretching */
+section p, section ul, section .stories {
+  max-width: 620px;
+}
+
+/* make cards wrap more nicely on wide screens */
+.card-row { max-width: 900px; margin-left: auto; margin-right: auto; }
+.card { flex: 1 1 260px; }
+
+/* increase vertical space so sections breathe */
+main section { padding-top: 56px; padding-bottom: 56px; }
+
